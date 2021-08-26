@@ -12,13 +12,14 @@ and software environment used to process the original AGCD dataset
 with the CAFE dataset (maintained by CSIRO).
 This essentially involves converting the original AGCD netCDF files
 to Zarr format and then regridding to the CAFE spatial grid.
-The processed files are stored at `/g/data4/xv83/dbi599/agcd/data/`.
+The processed files are stored at:  
+`/g/data/xv83/dbi599/agcd/data/`
 
 ### Code
 
 The following Python scripts contain the code used to process the AGCD data:
-- Convert the netCDF AGCD data files to zarr format (`nc_to_zarr.py`)
-- Regrid AGCD data to CAFE grid (`regrid_agcd_to_cafe.py`)
+- `nc_to_zarr.py`: converts the netCDF AGCD data files to zarr format 
+- `regrid_agcd_to_cafe.py`: regrids AGCD data to CAFE gri
 
 ### Data processing steps
 
@@ -44,21 +45,20 @@ that were used to execute the Python scripts and produce each data file:
 To find out exactly what commands were executed,
 run any of those make commands with the `-n` (dry run) and `-B` (force make)
 options (e.g. `make -n -B make zarr TIMESCALE=monthly`)
-or open any of the files in `../data` and look at the global history attribute.
+or open any of the data files and look at the global history attribute.
 
 ### Software environment
 
 When the `Makefile` executes a Python command it uses the conda environment
-at `/g/data/e14/dbi599/miniconda3/envs/agcd`.
+at:  
+`/g/data/e14/dbi599/miniconda3/envs/agcd`
 
 The software packages installed in that environment are listed in `environment.yml`.
 
 If you'd like to recreate that software environment
 (you don't need to in order to run the `Makefile`),
-run the following at the command line:
-```
-conda env create -f environment.yml 
-```
+run the following at the command line:  
+`conda env create -f environment.yml`
 
 ### Questions
 
