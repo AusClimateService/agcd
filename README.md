@@ -10,12 +10,24 @@ This repository contains the code used to:
 - Convert the netCDF AGCD data files to zarr format (`nc_to_zarr.py`)
 - Regrid AGCD data to CAFE grid (`regrid_agcd_to_cafe.py`)
 
-Those python scripts were executed to produce the data in `../data`
-by running the folowing at the command line:
-- `make zarr TIMESCALE=monthly` (convert monthly AGCD data to zarr format)
-- `make regrid TIMESCALE=monthly` (regrid monthly AGCD data to CAFE grid)
-- `make zarr TIMESCALE=monthly` (convert daily AGCD data to zarr format)
-- `make regrid TIMESCALE=monthly` (regrid daily data to CAFE grid)
+Those python scripts were executed to produce each data file in `../data`
+by running the following at the command line:
+
+`agcd_v2_precip_total_r005_monthly_1900-2020.zarr.zip`
+- `make zarr TIMESCALE=monthly`
+- Converts the version 2 monthly AGCD data (0.05 degree grid) to zarr format
+
+`agcd_v2_precip_total_cafe-grid_monthly_1900-2020.zarr.zip`
+- `make regrid TIMESCALE=monthly` 
+- Regrids the monthly AGCD data (0.05 degree grid) to the CAFE grid
+
+`agcd_v1_precip_total_r005_daily_1900-2020.zarr.zip`
+- `make zarr TIMESCALE=daily`
+- Converts the version 2 daily AGCD data (0.05 degree grid) to zarr format
+
+`agcd_v1_precip_total_cafe-grid_daily_1900-2020.zarr.zip`
+- `make regrid TIMESCALE=daily` 
+- Regrids the daily AGCD data (0.05 degree grid) to the CAFE grid
 
 To find out exactly what commands were executed,
 run any of those make commands with the `-n` (dry run) and `-B` (force make)
@@ -27,5 +39,8 @@ run the following at the command line:
 ```
 conda env create -f environment.yml 
 ```
+Questions or comments on the code are welcome at:  
+https://github.com/AusClimateService/agcd/issues
+
 
 
