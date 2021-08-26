@@ -6,12 +6,24 @@ often involves comparison against
 Australian Gridded Climate Data dataset
 ([AGCD](http://www.bom.gov.au/metadata/catalogue/19115/ANZCW0503900567)).
 
-This repository contains the code used to:
+This repository contains details of the code, data processing steps,
+and software environment used to process the original AGCD dataset
+(maintained by the Bureau of Meteorology) into a format consistent
+with the CAFE dataset (maintained by CSIRO).
+This essentially involves converting the original AGCD netCDF files
+to Zarr format and then regridding to the CAFE spatial grid.
+The processed files are stored at `/g/data4/xv83/dbi599/agcd/data/`.
+
+### Code
+
+The following Python scripts contain the code used to process the AGCD data:
 - Convert the netCDF AGCD data files to zarr format (`nc_to_zarr.py`)
 - Regrid AGCD data to CAFE grid (`regrid_agcd_to_cafe.py`)
 
-Those python scripts were executed to produce each data file in `../data`
-by running the following at the command line:
+### Data processing steps
+
+The `Makefile` contains the instructions to build and run the sequence of commands
+that were used to execute the Python scripts and produce each data file:
 
 `agcd_v2_precip_total_r005_monthly_1900-2020.zarr.zip`
 - `make zarr TIMESCALE=monthly`
@@ -34,12 +46,24 @@ run any of those make commands with the `-n` (dry run) and `-B` (force make)
 options (e.g. `make -n -B make zarr TIMESCALE=monthly`)
 or open any of the files in `../data` and look at the global history attribute.
 
-If you'd like to recreate the software environment that was used to run the python scripts,
+### Software environment
+
+When the `Makefile` executes a Python command it uses the conda environment
+at `/g/data/e14/dbi599/miniconda3/envs/agcd`.
+
+The software packages installed in that environment are listed in `environment.yml`.
+
+If you'd like to recreate that software environment
+(you don't need to in order to run the `Makefile`),
 run the following at the command line:
 ```
 conda env create -f environment.yml 
 ```
-Questions or comments on the code are welcome at:  
+
+### Questions
+
+Questions or comments are welcome at the GitHub repostory
+associated with the code:  
 https://github.com/AusClimateService/agcd/issues
 
 
