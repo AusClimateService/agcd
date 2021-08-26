@@ -1,4 +1,5 @@
-"""Regrid AGCD data to a different rectilinear grid."""
+"""Regrid AGCD data to CAFE grid."""
+
 import pdb
 import argparse
 
@@ -111,8 +112,8 @@ def main(args):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__,
                                      formatter_class=argparse.RawDescriptionHelpFormatter)        
-    parser.add_argument("input_file", type=str, help="Zarr file to be regridded")
-    parser.add_argument("target_file", type=str, help="Zarr file with target grid")
+    parser.add_argument("input_file", type=str, help="AGCD zarr file to be regridded")
+    parser.add_argument("target_file", type=str, help="CAFE zarr file with target grid")
     parser.add_argument("output_file", type=str, help="Zarr file for output (must end in .zarr.zip)")
     args = parser.parse_args()
     main(args)

@@ -6,7 +6,19 @@ import shutil
 import zipfile
 
 import git
+from dask.distributed import Client, LocalCluster
 import cmdline_provenance as cmdprov
+
+
+def dask_client():
+    """Launch dask client on local cluster."""
+    
+    cluster = LocalCluster()
+    client = Client(cluster)
+    print(client)
+    print('Watch progress at http://localhost:8787/status')
+
+    return client
 
 
 def get_new_log(infile_logs=None):
@@ -21,6 +33,8 @@ def get_new_log(infile_logs=None):
     try:
         repo = git.Repo(repo_dir)
         repo_url = repo.remotes[0].url.split('.git')[0]
+        repo_url = repo_url.replace('git@', 'https://')
+        repo_url = repo_url.replace('.com:', '.com/')
     except git.exc.InvalidGitRepositoryError:
         repo_url = None
     new_log = cmdprov.new_log(code_url=repo_url,
