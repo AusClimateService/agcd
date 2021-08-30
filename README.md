@@ -2,14 +2,15 @@
 
 Validation of the Climate Analysis Forecast Ensemble dataset
 ([CAFE](https://research.csiro.au/dfp/cafe-csiro-decadal-prediction-system/))
-often involves comparison against
+often involves comparison against the
 Australian Gridded Climate Data dataset
 ([AGCD](http://www.bom.gov.au/metadata/catalogue/19115/ANZCW0503900567)).
 
 This repository contains details of the code, data processing steps,
 and software environment used to process the original AGCD dataset
-(maintained by the Bureau of Meteorology) into a format consistent
-with the CAFE dataset (maintained by CSIRO).
+(maintained by the Bureau of Meteorology and hosted at `/g/data/zv2/agcd/`)
+into a format consistent with the CAFE dataset
+(maintained by CSIRO and hosted at `/g/data/xv83/dcfp/`).
 This essentially involves converting the original AGCD netCDF files
 to Zarr format and then regridding to the CAFE spatial grid.
 The processed files are stored at:  
@@ -65,6 +66,3 @@ run the following at the command line:
 Questions or comments are welcome at the GitHub repostory
 associated with the code:  
 https://github.com/AusClimateService/agcd/issues
-
-
-
