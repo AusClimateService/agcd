@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/399305245.svg)](https://zenodo.org/badge/latestdoi/399305245)
+
 ## AGCD data processing for CAFE analysis
 
 Validation of the Climate Analysis Forecast Ensemble dataset
