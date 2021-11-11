@@ -14,7 +14,7 @@ into a format consistent with the CAFE dataset
 This essentially involves converting the original AGCD netCDF files
 to Zarr format and then regridding to the CAFE spatial grid.
 The processed files are stored at:  
-`/g/data/xv83/dbi599/agcd/data/`
+`/g/data/ia39/AGCD/post-processed/data/`
 
 ### Code
 

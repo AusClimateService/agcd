@@ -10,7 +10,7 @@ else ifneq (${MAKECMDGOALS}, help)
   $(error Must specify TIMESCALE=daily or TIMESCALE=monthly at command line) 
 endif
 
-AGCD_DIR=/g/data/xv83/dbi599/agcd
+AGCD_DIR=/g/data/ia39/AGCD/post-processed
 PYTHON=/g/data/e14/dbi599/miniconda3/envs/agcd/bin/python
 FINAL_YEAR=2020
 
