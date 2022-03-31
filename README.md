@@ -22,7 +22,7 @@ The processed files are stored at:
 
 The following Python scripts contain the code used to process the AGCD data:
 - `nc_to_zarr.py`: converts the netCDF AGCD data files to zarr format 
-- `regrid_agcd_to_cafe.py`: regrids AGCD data to CAFE gri
+- `regrid_agcd_to_cafe.py`: regrids AGCD data to the CAFE grid
 
 ### Data processing steps
 
@@ -52,16 +52,20 @@ or open any of the data files and look at the global history attribute.
 
 ### Software environment
 
+The following Python libraries are dependencies for running the code:
+`xarray`, `netCDF4`, `dask`, `xesmf`, `gitpython` and `cmdline_provenance`.
+
 When the `Makefile` executes a Python command it uses the conda environment
-at:  
-`/g/data/e14/dbi599/miniconda3/envs/agcd`
+at `/g/data/e14/dbi599/miniconda3/envs/agcd`,
+which has all the dependencies (and their dependencies) installed.
+The complete list of packages installed in that environment is shown in `environment.yml`.
 
-The software packages installed in that environment are listed in `environment.yml`.
-
-If you'd like to recreate that software environment
+If you'd like to recreate that exact software environment
 (you don't need to in order to run the `Makefile`),
 run the following at the command line:  
-`conda env create -f environment.yml`
+```
+$ conda env create -f environment.yml
+```
 
 ### Questions
 
